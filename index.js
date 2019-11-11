@@ -1,4 +1,5 @@
 const server = require('./api/server');
+
 server.get('/', (req, res) => {
     res.send('test!!')
 });
