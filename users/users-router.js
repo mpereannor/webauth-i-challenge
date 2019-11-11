@@ -14,13 +14,20 @@ router.post('/register', (req, res) => {
     })
 })
 
-router.post('/login', (req, res) => {
-    Users.post
-})
+// router.post('/login', (req, res) => {
+//     let { username, password } = req.body;
+
+//     Users.findById({ username })
+//     .first()
+//     .then()
+// })
 
 router.get('/users', (req, res) => { 
-    Users.findById
-        
-})
+    Users.find()
+    .then(users => { 
+        res.json(users);
+    })
+    .catch(error => res.send(error.message))
+});
 
 module.exports = router;
