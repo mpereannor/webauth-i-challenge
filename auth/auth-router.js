@@ -5,6 +5,24 @@ const bcrypt = require('bcryptjs');
 
 const Users = require('../users/users-model');
 
+
+router.get('/logout', (req, res) => { 
+    if(req.session) { 
+        req.session.destroy(error => {
+            if(error) { 
+                res.json('sorry, you cannot leave')
+            }
+            else { 
+                res.json('goodbye, sad to see you go')
+            }
+        })
+    }
+    else{
+        res.end();
+    }
+})
+
+
 router.post('/register', (req, res) => { 
 
     let user = req.body;
